@@ -62,3 +62,10 @@ footer { color: var(--muted); }
 .warn-icon {
   line-height: 1;
 }
+
+
+.legal-note {
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
