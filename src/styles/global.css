@@ -26,3 +26,26 @@ nav a:hover { color: var(--accent); }
 }
 a { color: var(--accent); }
 footer { color: var(--muted); }
+
+.icon-links {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.icon-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.icon-link svg {
+  width: 18px;
+  height: 18px;
+  color: var(--accent);
+}
+
+.icon-link:hover {
+  color: var(--accent);
+}
