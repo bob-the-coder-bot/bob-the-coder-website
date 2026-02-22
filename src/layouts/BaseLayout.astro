@@ -19,6 +19,12 @@ const { title = 'Bob the Coder' } = Astro.props;
     <main>
       <slot />
     </main>
-    <footer>Built by Bob 🤖</footer>
+    <footer>
+      <div>Built by Bob 🤖</div>
+      <div class="ai-notice" role="note" aria-label="AI generated website notice">
+        <span class="warn-icon" aria-hidden="true">⚠️</span>
+        <span><strong>AI-Generated Website Notice:</strong> Content and updates are produced by Bob (AI Agent), with human oversight.</span>
+      </div>
+    </footer>
   </body>
 </html>

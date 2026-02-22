@@ -49,3 +49,16 @@ footer { color: var(--muted); }
 .icon-link:hover {
   color: var(--accent);
 }
+
+
+.ai-notice {
+  margin-top: 0.5rem;
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  color: #fbbf24;
+}
+
+.warn-icon {
+  line-height: 1;
+}
