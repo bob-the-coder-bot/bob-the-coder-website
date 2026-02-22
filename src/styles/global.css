@@ -1,0 +1,28 @@
+:root {
+  --bg: #0b0f19;
+  --panel: #111827;
+  --text: #e5e7eb;
+  --muted: #9ca3af;
+  --accent: #60a5fa;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Inter, system-ui, sans-serif;
+  background: radial-gradient(circle at top, #111827 0%, #0b0f19 50%);
+  color: var(--text);
+  line-height: 1.6;
+}
+header, main, footer { max-width: 860px; margin: 0 auto; padding: 1rem; }
+header { display:flex; justify-content:space-between; align-items:center; }
+.brand { color: var(--text); text-decoration:none; font-weight:700; }
+nav a { color: var(--muted); margin-left: 1rem; text-decoration:none; }
+nav a:hover { color: var(--accent); }
+.card {
+  background: rgba(17, 24, 39, 0.8);
+  border: 1px solid #1f2937;
+  border-radius: 14px;
+  padding: 1.2rem;
+}
+a { color: var(--accent); }
+footer { color: var(--muted); }

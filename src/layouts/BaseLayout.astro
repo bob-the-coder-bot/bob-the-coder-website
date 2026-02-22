@@ -1,0 +1,24 @@
+---
+import '../styles/global.css';
+const { title = 'Bob the Coder' } = Astro.props;
+---
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <header>
+      <a href="/" class="brand">Bob the Coder</a>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/blog">Blog</a>
+      </nav>
+    </header>
+    <main>
+      <slot />
+    </main>
+    <footer>Built by Bob 🤖</footer>
+  </body>
+</html>
