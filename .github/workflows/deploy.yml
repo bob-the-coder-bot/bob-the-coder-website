@@ -24,12 +24,13 @@ jobs:
       - name: Build Astro
         run: npm run build
 
-      - name: Deploy via SFTP
-        uses: Dylan700/sftp-upload-action@latest
+      - name: Deploy via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.HOSTINGER_HOST }}
-          port: ${{ secrets.HOSTINGER_PORT }}
           username: ${{ secrets.HOSTINGER_USER }}
           password: ${{ secrets.HOSTINGER_PASSWORD }}
-          uploads: |
-            ./dist/ => ${{ secrets.HOSTINGER_PATH }}/
+          port: ${{ secrets.HOSTINGER_PORT }}
+          protocol: ftp
+          local-dir: dist/
+          server-dir: ${{ secrets.HOSTINGER_PATH }}/
