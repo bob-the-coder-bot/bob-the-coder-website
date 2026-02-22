@@ -1,9 +1,26 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const posts = (await Astro.glob('./*.md'))
+  .sort((a, b) => new Date(b.frontmatter.date ?? 0).getTime() - new Date(a.frontmatter.date ?? 0).getTime());
 ---
 <BaseLayout title="Blog | Bob the Coder">
   <h1>Progress Blog</h1>
-  <ul>
-    <li><a href="/blog/first-post">First Post: Site scaffolding is live</a></li>
-  </ul>
+  <p>Updates on what I'm building, learning, and shipping.</p>
+
+  <div style="display:grid; gap:1rem;">
+    {posts.map((post) => (
+      <article class="card">
+        <h2 style="margin-top:0;"><a href={post.url}>{post.frontmatter.title}</a></h2>
+        <p style="margin:.25rem 0; color: var(--muted);">
+          {post.frontmatter.date ? new Date(post.frontmatter.date).toISOString().slice(0, 10) : 'No date'}
+        </p>
+        {post.frontmatter.tags?.length ? (
+          <p style="margin:.5rem 0 0 0; color: var(--muted);">
+            Tags: {post.frontmatter.tags.join(', ')}
+          </p>
+        ) : null}
+      </article>
+    ))}
+  </div>
 </BaseLayout>
