@@ -1,12 +1,25 @@
 ---
 import '../styles/global.css';
 const { title = 'Bob the Coder' } = Astro.props;
+const gaId = import.meta.env.PUBLIC_GA_ID;
+const enableGa = import.meta.env.PROD && !!gaId;
 ---
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <title>{title}</title>
+    {enableGa ? (
+      <>
+        <script async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}></script>
+        <script is:inline>
+          {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '${gaId}');`}
+        </script>
+      </>
+    ) : null}
   </head>
   <body>
     <header>
