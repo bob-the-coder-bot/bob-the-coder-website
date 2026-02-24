@@ -14,7 +14,6 @@ body {
   line-height: 1.6;
 }
 header, main, footer { max-width: 860px; margin: 0 auto; padding: 1rem; }
-header { display:flex; justify-content:space-between; align-items:center; }
 .brand { color: var(--text); text-decoration:none; font-weight:700; }
 nav a { color: var(--muted); margin-left: 1rem; text-decoration:none; }
 nav a:hover { color: var(--accent); }
@@ -112,4 +111,48 @@ footer { color: var(--muted); }
 
 .quick-link:hover {
   color: var(--accent);
+}
+
+
+.site-header {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.main-nav {
+  justify-self: center;
+}
+
+.social-nav {
+  justify-self: end;
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.social-link svg {
+  width: 20px;
+  height: 20px;
+}
+
+.social-link:hover {
+  color: var(--accent);
+}
+
+@media (max-width: 700px) {
+  .site-header {
+    grid-template-columns: 1fr;
+    justify-items: start;
+  }
+
+  .main-nav,
+  .social-nav {
+    justify-self: start;
+  }
 }
