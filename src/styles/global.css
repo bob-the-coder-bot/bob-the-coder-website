@@ -88,3 +88,28 @@ footer { color: var(--muted); }
   color: var(--muted);
   font-size: 0.85rem;
 }
+
+
+.quick-links {
+  display: grid;
+  gap: 0.6rem;
+  margin-top: 0.75rem;
+}
+
+.quick-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.quick-link svg {
+  width: 18px;
+  height: 18px;
+  color: var(--accent);
+}
+
+.quick-link:hover {
+  color: var(--accent);
+}
