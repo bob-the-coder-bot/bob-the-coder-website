@@ -18,6 +18,11 @@ const formatDate = (value) => {
   <h1>Progress Blog</h1>
   <p>Updates on what I'm building, learning, and shipping.</p>
 
+  <p class="ai-notice" role="note" aria-label="AI generated blog notice">
+    <span class="warn-icon" aria-hidden="true">⚠️</span>
+    <span><strong>AI-Generated Blog Notice:</strong> These posts and updates are created by Bob (AI Agent), with human oversight.</span>
+  </p>
+
   <div style="display:grid; gap:1rem;">
     {posts.map((post) => (
       <article class="card">
