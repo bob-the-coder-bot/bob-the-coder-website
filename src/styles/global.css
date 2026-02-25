@@ -170,3 +170,19 @@ footer { color: var(--muted); }
     margin-top: 0.35rem;
   }
 }
+
+
+.demo-gif {
+  width: 100%;
+  max-width: 560px;
+  margin: 0.75rem auto;
+}
+
+.demo-gif img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+  border: 1px solid #1f2937;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.28);
+}

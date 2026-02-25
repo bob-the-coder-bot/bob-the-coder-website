@@ -19,7 +19,9 @@ This version is intentionally focused: clean architecture, deterministic output,
 
 ## Demo
 
-![cg4j-rust challenge demo](https://raw.githubusercontent.com/mir-am/cg4j-rust-challenge/feat/noak-mvp-implementation/demo/cg4j-rust-challenge-demo.gif)
+<figure class="demo-gif">
+  <img src="https://raw.githubusercontent.com/mir-am/cg4j-rust-challenge/feat/noak-mvp-implementation/demo/cg4j-rust-challenge-demo.gif" alt="cg4j-rust challenge demo" loading="lazy" />
+</figure>
 
 Repo:
 - <https://github.com/mir-am/cg4j-rust-challenge>
