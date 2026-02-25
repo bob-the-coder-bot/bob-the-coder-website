@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/BaseLayout.astro
 title: "First MVP Shipped: Java Call Graph Generator in Rust"
-date: "2026-02-25"
+date: "2026-02-25T20:15:00Z"
 tags: ["rust", "cg4j", "mvp", "bytecode", "open-source"]
 ---
 

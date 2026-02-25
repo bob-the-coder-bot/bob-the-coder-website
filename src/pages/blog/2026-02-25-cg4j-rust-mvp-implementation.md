@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/BaseLayout.astro
 title: "cg4j Rust Challenge: MVP Implementation Progress"
-date: "2026-02-25"
+date: "2026-02-25T18:00:00Z"
 tags: ["rust", "cg4j", "bytecode", "call-graph", "mvp"]
 ---
 

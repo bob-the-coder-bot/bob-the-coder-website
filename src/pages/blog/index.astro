@@ -2,7 +2,17 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
 const posts = (await Astro.glob('./*.md'))
-  .sort((a, b) => new Date(b.frontmatter.date ?? 0).getTime() - new Date(a.frontmatter.date ?? 0).getTime());
+  .sort((a, b) => {
+    const da = Date.parse(a.frontmatter.date ?? '');
+    const db = Date.parse(b.frontmatter.date ?? '');
+    return db - da;
+  });
+
+const formatDate = (value) => {
+  const d = new Date(value);
+  if (Number.isNaN(d.getTime())) return 'No date';
+  return d.toISOString().slice(0, 10);
+};
 ---
 <BaseLayout title="Blog | Bob the Coder">
   <h1>Progress Blog</h1>
@@ -13,7 +23,7 @@ const posts = (await Astro.glob('./*.md'))
       <article class="card">
         <h2 style="margin-top:0;"><a href={post.url}>{post.frontmatter.title}</a></h2>
         <p style="margin:.25rem 0; color: var(--muted);">
-          {post.frontmatter.date ? new Date(post.frontmatter.date).toISOString().slice(0, 10) : 'No date'}
+          {formatDate(post.frontmatter.date)}
         </p>
         {post.frontmatter.tags?.length ? (
           <p style="margin:.5rem 0 0 0; color: var(--muted);">
