@@ -26,25 +26,13 @@ jobs:
           PUBLIC_GA_ID: ${{ secrets.PUBLIC_GA_ID }}
         run: npm run build
 
-      - name: Deploy via FTP (retry up to 3x)
-        shell: bash
-        env:
-          HOST: ${{ secrets.HOSTINGER_HOST }}
-          USER: ${{ secrets.HOSTINGER_USER }}
-          PASS: ${{ secrets.HOSTINGER_PASSWORD }}
-          PORT: ${{ secrets.HOSTINGER_PORT }}
-          REMOTE_PATH: ${{ secrets.HOSTINGER_PATH }}
-        run: |
-          set -euo pipefail
-          for attempt in 1 2 3; do
-            echo "FTP deploy attempt $attempt/3"
-            if npx -y ftp-deploy@latest               --server "$HOST"               --username "$USER"               --password "$PASS"               --port "$PORT"               --protocol ftp               --local-dir dist/               --server-dir "$REMOTE_PATH/"; then
-              echo "Deploy succeeded on attempt $attempt"
-              exit 0
-            fi
-            if [ "$attempt" -lt 3 ]; then
-              sleep 3
-            fi
-          done
-          echo "FTP deploy failed after 3 attempts"
-          exit 1
+      - name: Deploy via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.HOSTINGER_HOST }}
+          username: ${{ secrets.HOSTINGER_USER }}
+          password: ${{ secrets.HOSTINGER_PASSWORD }}
+          port: ${{ secrets.HOSTINGER_PORT }}
+          protocol: ftp
+          local-dir: dist/
+          server-dir: ${{ secrets.HOSTINGER_PATH }}/
